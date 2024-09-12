@@ -26,6 +26,6 @@ runs:
       
     - name: print variables
       run: |
-       echo "caching value is:"  inputs.caching
-       echo "test variable number is:"  inputs.testVar
+       echo "caching value is:"  $inputs.caching
+       echo "test variable number is:"  $inputs.testVar
       shell: bash
