@@ -23,8 +23,9 @@ runs:
       if: steps.cache.outputs.cache-hit != 'true' || inputs.caching !='true'
       run: npm ci 
       shell: bash
+      
     - name: print variables
       run: |
        echo "caching value is:"  inputs.caching
        echo "test variable number is:"  inputs.testVar
-
+      shell: bash
