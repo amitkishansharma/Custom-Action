@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   reusing:
-    uses: ./.github/workflows/reusable.yml
+    uses: ./.github/workflows/resusable.yml
   lint:
     runs-on: ubuntu-latest
     steps:
