@@ -9,6 +9,10 @@ inputs:
     description: 'test variable'
     required: false
     default: 10  
+outputs:
+  returnNum:
+    description:  'test output'
+    value:  ${{steps.setvar.returnNum }}    
 runs:
   using: 'composite'
   steps:
@@ -29,3 +33,12 @@ runs:
        echo "caching value is:"  ${{inputs.caching }}
        echo "test variable number is:"  ${{inputs.testVar }}
       shell: bash
+    - name: set variable
+      id: setvar
+      if: inputs.caching=='true'
+      run: |
+        echo: "returnNum='${{ 100}}' " >> $GITHUB_OUTPUT
+      if: inputs.caching=='true'
+      run: |
+        echo: "returnNum='${{ 1002}}' " >> $GITHUB_OUTPUT
+
