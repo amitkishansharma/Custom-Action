@@ -48,8 +48,6 @@ jobs:
         with:
           name: dist-files
           path: dist
-  reuse:
-    uses: ./.github.workflow/reusable.yml        
   deploy:
     needs: build
     runs-on: ubuntu-latest
