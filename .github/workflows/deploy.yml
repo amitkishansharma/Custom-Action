@@ -4,8 +4,7 @@ on:
     branches:
       - master
 jobs:
-  reusing:
-    uses: ./.github/workflows/resusable.yml
+
   lint:
     runs-on: ubuntu-latest
     steps:
