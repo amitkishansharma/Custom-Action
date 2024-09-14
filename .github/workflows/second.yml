@@ -11,6 +11,15 @@ jobs:
             testVar: 20
     call-reusable2:
         uses: ./.github/workflows/reusable.yml
+    print-output:
+        needs: [call-reusable,call-reusable2]
+        runs-on: ubuntu-latest
+        steps:
+          - name: print 1st output
+            run: |
+                echo ${{ needs.call-reusable.outputs.return-var}}
+                echo ${{ needs.call-reusable2.outputs.return-var}}
+        
 
 
 

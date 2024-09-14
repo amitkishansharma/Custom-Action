@@ -7,6 +7,10 @@ on:
         required: false
         default: 10
         type: number
+    outputs:
+      return-var:
+        description: return value
+        value: ${{ jobs.deploy.outputs.outcome }}    
 jobs:  
   deploy:
     outputs:
@@ -17,6 +21,6 @@ jobs:
         run: echo "testing the reusable workflow ${{inputs.testVar}}"
       - name: set-output
         id: set-output
-        run: echo "return-num=100" >> $GITHUB_OUTPUT  
+        run: echo "return-num=${{inputs.testVar}} * 3" >> $GITHUB_OUTPUT  
 
       
