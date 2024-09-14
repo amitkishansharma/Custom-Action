@@ -38,5 +38,6 @@ runs:
       if: inputs.caching=='true'
       run: |
         echo: "returnNum='${{ 100}}' " >> $GITHUB_OUTPUT
+      shell: bash
 
 
