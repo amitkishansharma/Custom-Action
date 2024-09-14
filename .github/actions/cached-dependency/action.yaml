@@ -41,5 +41,6 @@ runs:
       shell: bash
     - name: print variable
       run: echo ${{ steps.setvar.output.returnNum}} 
+      shell: bash
 
 
