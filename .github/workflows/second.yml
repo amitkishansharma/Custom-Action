@@ -9,6 +9,9 @@ jobs:
         uses: ./.github/workflows/reusable.yml
         with:
             testVar: 20
+    call-reusable2:
+        uses: ./.github/workflows/reusable.yml
+
 
 
 
