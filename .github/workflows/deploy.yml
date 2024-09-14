@@ -12,6 +12,7 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Load and Cache Dependency
+        id: cache-dep
         uses: ./.github/actions/cached-dependency
         with:
           caching: 'false'
@@ -21,10 +22,13 @@ jobs:
         run: npm run lint
   test:
     runs-on: ubuntu-latest
+    outputs:
+      returnvar: ${{ steps.cache-dep.outputs.returnvar}}
     steps:
       - name: Get code
         uses: actions/checkout@v3
       - name: Load and Cache Dependency
+        id: cache-dep
         uses: ./.github/actions/cached-dependency
       - name: Test code
         id: run-tests
@@ -53,7 +57,7 @@ jobs:
   reuse:
     uses: ./.github/workflows/reusable.yml        
   deploy:
-    needs: build
+    needs: [build,test]
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -66,4 +70,6 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
-        run: echo "Deploying..."
+        run: |
+          echo "Deploying..."
+          echo ${{needs.test.outputs.returnvar}}
