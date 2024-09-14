@@ -2,8 +2,14 @@ name: reusable workflow
 on: workflow_call
 jobs:
   deploy:
+    outputs:
+      outcome: ${{steps.set-output.outputs.return-num}}
     runs-on: ubuntu-latest
     steps:
       - name: output info
         run: echo "testing the reusable workflow"
+      - name: set-output
+        id: set-output
+        run: echo "return-num=100" >> $GITHUB_OUTPUT  
+
       
