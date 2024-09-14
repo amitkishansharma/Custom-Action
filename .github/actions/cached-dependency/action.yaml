@@ -39,5 +39,7 @@ runs:
       run: |
        echo "returnNum=100" >> "$GITHUB_OUTPUT"
       shell: bash
+    - name: print variable
+      run: echo ${{ steps.setvar.output.returnNum}} 
 
 
