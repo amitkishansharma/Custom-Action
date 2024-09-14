@@ -4,8 +4,8 @@ on:
     branches:
       - master
 jobs:
-  # reusing:
-  #   uses: ./.github/workflows/reusable.yml
+  reusing:
+    uses: ./.github/workflows/reusable.yml
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,7 @@ jobs:
           name: dist-files
           path: dist
   reuse:
-    uses: ./.github.workflow/reusable.yml        
+    uses: ./.github/workflows/reusable.yml        
   deploy:
     needs: build
     runs-on: ubuntu-latest
