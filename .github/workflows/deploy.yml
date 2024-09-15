@@ -60,8 +60,9 @@ jobs:
           path: dist
   reuse:
     uses: ./.github/workflows/reusable.yml
-      # - name: print the variable
-      #   run: echo ${{steps.reuse-step.outputs.return-num}}       
+  reuse2:  
+    uses: ./.github/workflows/reusable2.yml
+
   deploy:
     needs: [build,test]
     runs-on: ubuntu-latest

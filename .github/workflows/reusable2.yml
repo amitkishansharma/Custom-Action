@@ -1,0 +1,26 @@
+name: reusable workflow
+on: 
+  workflow_call:
+    inputs:
+      testVar:
+        description: test variable
+        required: false
+        default: 10
+        type: number
+    outputs:
+      return-var:
+        description: return value
+        value: ${{ jobs.deploy.outputs.outcome }}    
+jobs:  
+  deploy:
+    outputs:
+      outcome: ${{steps.set-output.outputs.return-num}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: output info
+        run: echo "testing the reusable workflow2 ${{inputs.testVar}}"
+      - name: set-output
+        id: set-output
+        run: echo "return-num=${{inputs.testVar}}*4" >> $GITHUB_OUTPUT  
+
+      
