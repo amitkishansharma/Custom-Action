@@ -62,10 +62,11 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: run the reusable flow
-        id: reuse-step
-        uses: ./.github/workflows/reusable.yml 
-      - name: print the variable
-        run: echo ${{steps.reuse-step.outputs.return-num}}       
+        # id: reuse-step
+        uses: ./.github/workflows/reusable.yml
+        
+      # - name: print the variable
+      #   run: echo ${{steps.reuse-step.outputs.return-num}}       
   deploy:
     needs: [build,test]
     runs-on: ubuntu-latest
