@@ -59,12 +59,7 @@ jobs:
           name: dist-files
           path: dist
   reuse:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: run the reusable flow
-        # id: reuse-step
-        uses: ./.github/workflows/reusable.yml
-        
+    uses: ./.github/workflows/reusable.yml
       # - name: print the variable
       #   run: echo ${{steps.reuse-step.outputs.return-num}}       
   deploy:
