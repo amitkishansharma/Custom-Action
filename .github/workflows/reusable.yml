@@ -21,6 +21,6 @@ jobs:
         run: echo "testing the reusable workflow ${{inputs.testVar}}"
       - name: set-output
         id: set-output
-        run: echo "return-num=$inputs.testVar * 3" >> $GITHUB_OUTPUT  
+        run: echo "return-num=${{inputs.testVar}}*3" >> $GITHUB_OUTPUT  
 
       
